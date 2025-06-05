@@ -2,6 +2,7 @@
 import { useDestination } from '../composables/useDestination';
 import TravelSearchBar from './TravelSearchBar.vue';
 import TravelSearchCards from './TravelSearchCards.vue';
+import PrevNextButtons from './PrevNextButtons.vue';
 
 import { ref, computed } from 'vue';
 
@@ -34,6 +35,7 @@ fetchDestinations(PLACEHOLDER);
     <main>
         <TravelSearchBar :search @search-input="onSearchInput" />
         <TravelSearchCards :destinations="destinationsArray" :loading :error />
+        <PrevNextButtons :placeholder="PLACEHOLDER" :search />
     </main>
 </template>
 

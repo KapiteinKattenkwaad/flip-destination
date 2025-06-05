@@ -8,8 +8,10 @@
             <h1 class="col">
                 Country Photo Search
             </h1>
-            <h2 class="col c-flip">
-                FLIP
+            <h2 class="col">
+                <span class="c-flip">
+                    FLIP
+                </span>
             </h2>
         </div>
     </header>
@@ -23,11 +25,12 @@ header {
 }
 
 .c-flip {
+    display: inline-block;
     cursor: pointer;
     perspective: 1000px;
     transform-style: preserve-3d;
     transition: transform .5s ease-in;
-    
+
     &:hover {
         transform: rotateX(180deg);
     }

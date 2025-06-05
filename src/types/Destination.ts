@@ -23,4 +23,5 @@ export interface Destination {
 
 export interface Destinations {
     photos: Destination[];
+    next_page?: string | null
 }

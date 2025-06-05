@@ -13,9 +13,6 @@ const sortedDestinations = computed(() => {
     return [...destinations].sort((a, b) => a.id - b.id);
 });
 
-console.log({ destinations })
-
-
 </script>
 
 <template>
@@ -37,7 +34,6 @@ console.log({ destinations })
 </template>
 
 <style scoped>
-
 ul {
     margin-bottom: 0;
 }
@@ -45,5 +41,4 @@ ul {
 li {
     list-style: none;
 }
-
 </style>
