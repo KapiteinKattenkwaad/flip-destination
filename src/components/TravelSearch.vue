@@ -9,13 +9,30 @@ const { destinations, loading, error, fetchDestinations } = useDestination();
 const search = ref('');
 const PLACEHOLDER = 'Dallas';
 
+let debounceTimeout: ReturnType<typeof setTimeout> | null = null;
+
+const onSearchInput = (value: string) => {
+    search.value = value;
+
+    if (debounceTimeout) {
+        clearTimeout(debounceTimeout);
+    }
+
+    debounceTimeout = setTimeout(() => {
+        if (search.value.length >= 3) {
+            console.log(search.value)
+            fetchDestinations(search.value);
+        }
+    }, 500);
+};
+
 fetchDestinations(PLACEHOLDER)
 
-console.log({ destinations })
+
 </script>
 
 <template>
-    <TravelSearchBar />
+    <TravelSearchBar :search="search" @search-input="onSearchInput" />
     <TravelSearchCards />
 </template>
 
