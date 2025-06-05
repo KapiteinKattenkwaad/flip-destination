@@ -38,6 +38,10 @@ console.log({ destinations })
 
 <style scoped>
 
+ul {
+    margin-bottom: 0;
+}
+
 li {
     list-style: none;
 }
