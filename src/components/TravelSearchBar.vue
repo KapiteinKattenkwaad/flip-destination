@@ -14,11 +14,20 @@ const onInput = (event: Event) => {
 </script>
 
 <template>
-    <form class="mb-3">
+    <form class="mb-4 text-center">
         <label for="exampleInputEmail1" class="visually-hidden">Search for your ideal travel destination:</label>
         <input type="text" id="exampleInputEmail1" aria-describedby="search your travel destination"
             :value="props.search" @input="onInput" placeholder="e.g.: Dallas">
     </form>
 </template>
 
-<style scoped></style>
+<style scoped>
+     input {
+        height: 35px;
+        min-width: 30vw;
+        max-width: 300px;
+        border-radius: 5px;
+        border: 1px solid var(--borderGrey);
+        margin-top: calc(-55px / 2);
+    }
+</style>

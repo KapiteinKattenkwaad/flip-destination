@@ -28,8 +28,8 @@ console.log({ destinations })
     </p>
 
     <div v-else>
-        <ul>
-            <li v-for="desti in sortedDestinations" :key="desti.id">
+        <ul class="row gx-3 gy-2 align-items-center justify-content-center">
+            <li class="col-auto" v-for="desti in sortedDestinations" :key="desti.id">
                 <TravelSearchCard :destination="desti" />
             </li>
         </ul>
