@@ -31,8 +31,14 @@ fetchDestinations(PLACEHOLDER);
 </script>
 
 <template>
-    <TravelSearchBar :search @search-input="onSearchInput" />
-    <TravelSearchCards :destinations="destinationsArray" :loading :error />
+    <main>
+        <TravelSearchBar :search @search-input="onSearchInput" />
+        <TravelSearchCards :destinations="destinationsArray" :loading :error />
+    </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+    main {
+        background-color: var(--background);
+    }
+</style>

@@ -5,9 +5,9 @@ import Footer from "./components/Footer.vue"
 </script>
 
 <template>
-  <main class="container">
+  <div class="container">
     <Header />
     <TravelSearch />
     <Footer />
-  </main>
+  </div>
 </template>
