@@ -1,8 +1,34 @@
 <script setup lang="ts">
+    import type { Destination } from './../types/Destination';
+    import { computed } from 'vue';
 
+    const { destinations, loading, error } = defineProps<{
+        destinations: Destination[];
+        loading: boolean;
+        error: string | null;
+    }>();
+
+    const sortedDestinations = computed(() => {
+        return [...destinations].sort((a, b) => a.id - b.id);
+    });
+
+    console.log({destinations})
+
+  
 </script>
 
 <template>
+     <div v-if="loading">Loading...</div>
+
+     <div v-if="error">Uh oh, there was an error: {{ error }}</div>
+
+     <div v-else>
+
+        <li v-for="desti in sortedDestinations" :key="desti.id">
+        {{ desti.id }} ({{ desti.alt }})
+      </li>
+     </div>
+
     <article class="card text-bg-dark">
         <img src="..." class="card-img" alt="...">
         <div class="card-img-overlay">

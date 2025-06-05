@@ -3,11 +3,13 @@ import { useDestination } from '../composables/useDestination';
 import TravelSearchBar from './TravelSearchBar.vue';
 import TravelSearchCards from './TravelSearchCards.vue';
 
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const { destinations, loading, error, fetchDestinations } = useDestination();
 const search = ref('');
 const PLACEHOLDER = 'Dallas';
+
+const destinationsArray = computed(() => destinations.value);
 
 let debounceTimeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -20,20 +22,17 @@ const onSearchInput = (value: string) => {
 
     debounceTimeout = setTimeout(() => {
         if (search.value.length >= 3) {
-            console.log(search.value)
             fetchDestinations(search.value);
         }
     }, 500);
 };
 
-fetchDestinations(PLACEHOLDER)
-
-
+fetchDestinations(PLACEHOLDER);
 </script>
 
 <template>
-    <TravelSearchBar :search="search" @search-input="onSearchInput" />
-    <TravelSearchCards />
+    <TravelSearchBar :search @search-input="onSearchInput" />
+    <TravelSearchCards :destinations="destinationsArray" :loading :error />
 </template>
 
 <style scoped></style>
